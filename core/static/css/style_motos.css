@@ -1,0 +1,214 @@
+.titulos {
+    text-align: center;
+    padding-bottom: 1px;
+
+}
+
+.titulos h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    position: relative;
+    color: #292929;
+}
+
+.titulos h2::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+}
+
+.titulos h2::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #FFBA0A;
+    bottom: 0;
+    left: calc(50% - 20px);
+}
+
+.breadcrumb {
+    margin-top: 30px
+}
+
+.filtro { 
+    margin-right: 4px;
+}
+.bt-buscar{
+    margin-top: 16px;
+}
+
+.section-motos {
+    padding: 40px 0;
+}
+
+
+
+/* .col-xl-10 {
+    padding: 0;
+} */
+.form-filtro div label{
+    font-weight: 400;
+    margin-left: 5px;
+}
+.form-filtro div{
+    margin-bottom: 8px;
+}
+.cartao{
+    padding: 0 10px;
+}
+
+hr:not([size]) {
+    height: 2px;
+}
+hr{
+    color: #FFBA0A;
+    height: 12px;
+}
+.title-check{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.form-check-input:checked {
+    background-color: #FFBA0A;
+    border-color: #FFBA0A;
+}
+.form-check-input{
+    height: 18px;
+    width: 18px;
+}
+
+.img-card{
+  margin: 2px 0;
+}
+
+.card-moto .img-card img{
+    max-height: 9em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.card-moto {
+    margin-bottom: 16px;
+    border: 0.5px solid #E1E1E1;
+    padding: 16px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    max-height: 19em;
+    transform: scale(0.98);
+    transition: box-shadow 0.5s, transform 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+}
+
+
+.card-moto:hover {
+    transform: scale(1);
+    border: 1px solid #FFBA0A;
+    box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-moto span {
+    color: #7AC41A;
+}
+
+.modelo {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.marca {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.valor {
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.vista {
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.prazo {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.card-moto p {
+    color: #292929;
+    margin: 0;
+}
+
+
+main a {
+    text-decoration: none;
+}
+
+main {
+    width: 80%;
+    margin: auto;
+    margin-top: 80px;
+}
+
+
+[data-anime]{
+    opacity: 0;
+    transition: all 1s ease 0s;
+}
+
+[data-anime="left"]{
+    transform: translate3d(-50px, 0, 0);
+}
+
+
+[data-anime="rigth"]{
+    transform: translate3d(50px, 0, 0);
+}
+
+
+[data-anime="up"]{
+    transform: translate3d(0, 50px, 0);
+}
+
+[data-anime].animate{
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.notfound{
+    display: flex;
+    justify-content: center;
+
+}
+.notfound div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+.notfound svg {
+    width: 100px;
+}
+.notfound svg path{
+    fill: #FFBA0A;
+}
+.empty{
+    margin-top: 10px;
+    font-weight: 500;
+    width: 60%;
+    text-align: center;
+}

@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load bootstrap4 %}
+{% load mathfilters %}
+{% load humanize %}
+
+{% block title%} Delegado Motos {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style_index.css' %}">
+{% endblock %}
+
+{% block sobre %}#link-sobre{% endblock %}
+{% block contato %}#link-contato{% endblock %}
+
+
+{% block main %}
+<main>
+    <section class="principal containerproje">
+
+        <section class="slide-container active">
+
+            <div class="slide container-fluid">
+
+                <div class="row d-flex justify-content-around contentproje tituloinicial">
+
+                    <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-8">
+                        <h1>Delegado Motos</h1>
+
+                        <p class="compra">COMPRA, VENDE E TROCA</p>
+                        <p>“Impossível não comprar no Delegado Motos”</p>
+                        <a href="{% url 'motos' %}">
+                            <button type="button" class="btn bt-comprar">Comprar</button>
+                        </a>
+                    </div>
+
+
+                    <div class="col-xl-4 col-lg-4 col-md-8 col-sm-8 col-8">
+                        <img class="foto-principal img-fluid" src="{% static 'img/foto-principal.png' %}" alt="">
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <div class="slide-container">
+            <div class="slide">
+                <div class="contentproje">
+                    <video muted controls src="{% static 'videos/WhatsApp Video 2022-10-28 at 22.18.01.mp4' %}" autoplay
+                        type="video/mp4"></video>
+                    <!-- <iframe width="100%" height="500px" src="https://www.youtube.com/embed/EzeiVUc4aWA"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe> -->
+                </div>
+            </div>
+        </div>
+
+        <?xml version="1.0" encoding="iso-8859-1"?>
+        <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg class="seta" id="prev" onclick="prev()" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330"
+            style="enable-background:new 0 0 330 330;" xml:space="preserve">
+            <path id="XMLID_224_"
+                d="M325.606,229.393l-150.004-150C172.79,76.58,168.974,75,164.996,75c-3.979,0-7.794,1.581-10.607,4.394
+	l-149.996,150c-5.858,5.858-5.858,15.355,0,21.213c5.857,5.857,15.355,5.858,21.213,0l139.39-139.393l139.397,139.393
+	C307.322,253.536,311.161,255,315,255c3.839,0,7.678-1.464,10.607-4.394C331.464,244.748,331.464,235.251,325.606,229.393z" />
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+        </svg>
+        <?xml version="1.0" encoding="iso-8859-1"?>
+        <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg class="seta" id="next" onclick="next()" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330"
+            style="enable-background:new 0 0 330 330;" xml:space="preserve">
+            <path id="XMLID_224_"
+                d="M325.606,229.393l-150.004-150C172.79,76.58,168.974,75,164.996,75c-3.979,0-7.794,1.581-10.607,4.394
+	l-149.996,150c-5.858,5.858-5.858,15.355,0,21.213c5.857,5.857,15.355,5.858,21.213,0l139.39-139.393l139.397,139.393
+	C307.322,253.536,311.161,255,315,255c3.839,0,7.678-1.464,10.607-4.394C331.464,244.748,331.464,235.251,325.606,229.393z" />
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+            <g>
+            </g>
+        </svg>
+
+    </section>
+    <section class="motos-principal">
+        <section class="addrecente" data-anime="up">
+            <h3>Adicionados recentementes</h3>
+            <div class="container">
+                <div class="row">
+                    {% for moto in add_recente %}
+                    <div class="cartao col-xl-3 col-lg-4 col-md-4 col-sm-6 col-8">
+                        <a class="" href="{% url 'detalhes' moto.id %}">
+                            <div class="card-moto">
+
+                                <p class="marca">{{ moto.marca }}</p>
+                                <p class="modelo">{{ moto.modelo }} {{ moto.cilindradas }}c</p>
+                                <center>
+                                    <div class="img-card">
+
+                                        <img class="img-fluid" src="/main/{{ moto.imagens.imagem_sem_fundo }}" alt="">
+
+                                    </div>
+                                </center>
+                                <p class="valor">Por R$ {{ moto.preco|intcomma  }}</p>
+                                <p class="vista">à vista <span>(com de desconto)</span></p>
+                                <p class="prazo">ou 18x de R$ {{ moto.preco|mul:1.025|div:18|floatformat:2 }} com
+                                    juros
+                                </p>
+
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section>
+
+        <section class="maispro" data-anime="up">
+            <h3>Motos mais baratas</h3>
+            <div class="container">
+                <div class="row">
+                    {% for moto in menor_preco %}
+                    <div class="cartao col-xl-3 col-lg-4 col-md-4 col-sm-6 col-8">
+                        <a class="" href="{% url 'detalhes' moto.id %}">
+                            <div class="card-moto">
+
+                                <p class="marca">{{ moto.marca }}</p>
+                                <p class="modelo">{{ moto.modelo }} {{ moto.cilindradas }}c</p>
+                                <center>
+                                    <div class="img-card">
+
+                                        <img class="img-fluid" src="/main/{{ moto.imagens.imagem_sem_fundo }}" alt="">
+
+                                    </div>
+                                </center>
+                                <p class="valor">Por R$ {{ moto.preco|intcomma  }}</p>
+                                <p class="vista">à vista <span>(com de desconto)</span></p>
+                                <p class="prazo">ou 18x de R$ {{ moto.preco|mul:1.025|div:18|floatformat:2 }} com
+                                    juros
+                                </p>
+
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section>
+    </section>
+    <section data-anime="up" data-bs-spy="scroll" data-bs-root-margin="0px 0px -40%" id="link-sobre" class="sobre">
+        <div class="titulos">
+            <h2>Sobre</h2>
+        </div>
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center">
+                <div class="col-xl-6 col-md-12">
+                    <img src="{% static 'img/sobre.jpeg' %}" class="img-fluid" alt="fachada da empresa Delegado Motos">
+                    <p class="legenda-sobre d-flex justify-content-center">Fachada da Delegado Motos</p>
+                </div>
+                <div class="col-xl-6 col-md-12 texto">
+                    <p>Na busca do meu primeiro empreedimento, decidi investir o pouco capital que possuía em
+                        uma moto para
+                        revenda. Iniciou-se assim a empresa Delegado Motos, no qual usei meu apelido para nomeá-la.
+                    </p>
+                    <br>
+                    <p id="segundo">Aos poucos fomos crescendo e ganhando visibilidade na região alto oeste
+                        potiguar.
+                        Atualmente, contamos
+                        com funcionários, mais de vinte motos e alguns carros para escolha dos nossos clientes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="link-contato" class="section-contact container-fluid">
+        <div class="titulos">
+            <h2>Fale conosco</h2>
+        </div>
+        <div class="row d-flex justify-content-evenly">
+
+            <section data-anime="left" class="fale-conosco col-xl-4 col-lg-5 col-md-7 col-sm-7 col-8">
+
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert {{message.tags}}">
+                    {{message}}
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25px" height="25px"
+                        viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
+                        <path d="M26,2C12.7,2,2,12.7,2,26s10.7,24,24,24s24-10.7,24-24S39.3,2,26,2z M39.4,20L24.1,35.5
+                   c-0.6,0.6-1.6,0.6-2.2,0L13.5,27c-0.6-0.6-0.6-1.6,0-2.2l2.2-2.2c0.6-0.6,1.6-0.6,2.2,0l4.4,4.5c0.4,0.4,1.1,0.4,1.5,0L35,15.5
+                   c0.6-0.6,1.6-0.6,2.2,0l2.2,2.2C40.1,18.3,40.1,19.3,39.4,20z" />
+                    </svg>
+
+                </div>
+                {% endfor %}
+                {% endif %}
+
+                <form action="#link-contato" method="post" autocomplete="off">
+
+                    {% csrf_token %}
+                    {{ form }}
+
+                    <button type="submit" class="bt-enviar">Enviar mensagem</button>
+
+                </form>
+
+            </section>
+
+            <section data-anime="rigth" class="col-xl-4 col-lg-5 col-md-7 col-sm-7 col-8 mapa">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.7987482174137!2d-38.20688051185376!3d-6.104424666222025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfbf9fc929b57a90e!2zNsKwMDYnMTUuOSJTIDM4wrAxMicyMi44Ilc!5e0!3m2!1spt-BR!2sbr!4v1656964368214!5m2!1spt-BR!2sbr"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </section>
+
+        </div>
+    </section>
+
+
+</main>
+
+{% endblock %}
+{% block fotsobre %}#link-sobre{% endblock %}
+{% block fotcontato %}#link-contato{% endblock %}

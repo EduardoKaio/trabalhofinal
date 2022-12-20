@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load humanize %}
+{% load mathfilters %}
+
+{% load widget_tweaks %}
+
+{% block title%} Motos {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style_motos.css' %}"> {% endblock %}
+
+{% block sobre %}{% url 'index' %}#link-sobre{% endblock %}
+{% block contato %}{% url 'index' %}#link-contato{% endblock %}
+
+{% block main %}
+
+<main>
+
+  <div class="container-fluid">
+    <nav class="row"
+      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+      aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}">Início</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Motos</li>
+      </ol>
+    </nav>
+
+    <div data-anime="up" class="titulos row">
+      <h2>Motos</h2>
+    </div>
+
+    <div data-anime="up" class="d-flex justify-content-end">
+      <form class="d-flex filtro" action="{% url 'motos' %}" id="myForm" method="post">
+        {% csrf_token %}
+        {{ selectform }}
+
+        <button name="selectBt" class="btn btn-success" type="submit">Filtrar</button>
+      </form>
+
+    </div>
+
+
+  </div>
+
+  <section data-anime="up" class="container-fluid section-motos">
+    <div class="row">
+
+      <div data-anime="left" class="col-xl-2">
+        <form class="form-filtro" action="" method="post">
+          {% csrf_token %}
+
+
+          <label class="title-check" for="preco">Preço</label>
+          <div class="col-xl-12">
+            <div>
+              <input class="form-check-input" type="checkbox" name="ate10" id="id_ate10">
+              <label for="ate10">Até R$ 10.000,00</label>
+            </div>
+            <div>
+              <input class="form-check-input" type="checkbox" name="mais10" id="id_mais10">
+              <label for="mais10">Mais de R$ 10.000,00</label>
+            </div>
+          </div>
+          <hr>
+
+
+          <label class="title-check" for="marca">Marca</label>
+          <div class="col-xl-12">
+            <div>
+              <input class="form-check-input" type="checkbox" name="honda" id="id_honda">
+              <label for="honda">Honda</label>
+            </div>
+
+            <div>
+              <input class="form-check-input" type="checkbox" name="yamaha" id="id_yamaha">
+              <label for="yamaha">Yamaha</label>
+            </div>
+          </div>
+          <hr>
+
+          <label class="title-check" for="cilindradas">Cilindradas</label>
+          <div class="col-xl-12">
+            <div>
+              <input class="form-check-input" type="checkbox" name="c100" id="id_c100">
+              <label for="c100">100c</label>
+            </div>
+
+            <div>
+              <input class="form-check-input" type="checkbox" name="c125" id="id_c125">
+              <label for="c125">125c</label>
+            </div>
+
+            <div>
+              <input class="form-check-input" type="checkbox" name="c150" id="id_c150">
+              <label for="c150">150c</label>
+            </div>
+
+            <div>
+              <input class="form-check-input" type="checkbox" name="c160" id="id_c160">
+              <label for="c160">160c</label>
+            </div>
+
+            <div>
+              <input class="form-check-input" type="checkbox" name="c250" id="id_c250">
+              <label for="c250">250c</label>
+            </div>
+
+            <div>
+              <input class="form-check-input" type="checkbox" name="c300" id="id_c300">
+              <label for="c300">300c</label>
+            </div>
+
+          </div>
+          <hr>
+          <div class="col-xl-12">
+
+            <button name="checkboxBt" type="submit" class="btn btn-success bt-buscar">Buscar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-xl-10">
+
+        <section class="container-fluid">
+          <div class="row d-flex">
+            {% for moto in motos %}
+            <div class="cartao col-xl-3 col-lg-4 col-md-4 col-sm-6 col-8">
+
+              <a class="" href="{% url 'detalhes' moto.id %}">
+                <div class="card-moto">
+
+
+                  <p class="marca">{{ moto.marca }}</p>
+                  <p class="modelo">{{ moto.modelo }} {{ moto.cilindradas }}c</p>
+
+                  <center>
+                    <div class="img-card">
+
+                      <img class="img-fluid" src="/main/{{ moto.imagens.imagem_sem_fundo }}" alt="">
+
+                    </div>
+                  </center>
+
+                  <p class="valor">Por R$ {{ moto.preco|intcomma  }}</p>
+                  <p class="vista">à vista <span>(com de desconto)</span></p>
+                  <p class="prazo">ou 18x de R$ {{ moto.preco|mul:1.025|div:18|floatformat:2 }} com juros</p>
+
+
+                </div>
+              </a>
+            </div>
+            {% empty %}
+            <div class="notfound">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"
+                  text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd"
+                  clip-rule="evenodd" viewBox="0 0 507 511.92">
+                  <path
+                    d="M223.36 0c61.68 0 117.53 25 157.95 65.43 40.42 40.42 65.42 96.26 65.42 157.94 0 45.12-13.39 87.13-36.4 122.25L507 450.99l-66.66 60.93-93.23-102.58c-35.42 23.62-77.98 37.39-123.75 37.39-61.67 0-117.52-25-157.94-65.42C25 340.88 0 285.04 0 223.36c0-61.67 25-117.52 65.42-157.94S161.69 0 223.36 0zm59.55 136.89 25.81 25.99-59.78 60.5 59.83 60.56-25.9 25.79-59.48-60.19-59.57 60.3-25.8-25.99 59.77-60.51-59.83-60.56 25.9-25.79 59.48 60.19 59.57-60.29zm80.78-53.84c-35.91-35.91-85.53-58.13-140.33-58.13-54.8 0-104.41 22.22-140.32 58.13-35.91 35.91-58.12 85.51-58.12 140.31s22.21 104.42 58.12 140.32c35.91 35.92 85.52 58.12 140.32 58.12s104.42-22.2 140.33-58.12c35.91-35.9 58.11-85.51 58.11-140.32 0-54.8-22.2-104.4-58.11-140.31z" />
+                  </svg>
+                <p class="empty">Poxa, nenhuma moto foi encontrada com sua busca. :(</p>
+                <p></p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </section>
+  <div class="container">
+    <div class="row ">
+      <ul class="pagination justify-content-md-center">
+
+        {% if motos.has_previous %}
+
+        {% if request.GET.search %}
+        <li class="page-item">
+          <a href="?page={{ motos.previous_page_number }}&search={{ request.GET.search }}"
+            class="page-link">Anterior</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+          <a href="?page={{ motos.previous_page_number }}" class="page-link">Anterior</a>
+        </li>
+        {% endif %}
+
+
+        {% endif %}
+
+        <li class="page-item"><span class="page-link"> Página {{ motos.number }} de
+            {{ motos.paginator.num_pages }}</span></li>
+
+        {% if motos.has_next %}
+
+        {% if request.GET.search %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ motos.next_page_number }}&search={{ request.GET.search }}">Próximo</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ motos.next_page_number }}">Próximo</a>
+        </li>
+        {% endif %}
+
+        {% endif %}
+
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+
+</main>
+
+
+{% endblock %}
+
+{% block fotsobre %}{% url 'index' %}#link-sobre{% endblock %}
+{% block fotcontato %}{% url 'index' %}#link-contato{% endblock %}

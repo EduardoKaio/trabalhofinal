@@ -1,0 +1,483 @@
+.principal {
+    background-color: #FFBA0A;
+}
+
+.principal section {
+    width: 80%;
+    margin: auto;
+    color: #ffffff;
+    padding: 30px;
+}
+
+
+.alert svg{
+    fill: #0f5132;
+    margin-left: 12px;
+}
+
+.alert{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    font-size: 60px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.tituloinicial {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bt-comprar {
+    width: 8.5em;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    background-color: #213242;
+    color: #FFFFFF;
+}
+.bt-comprar:hover{
+    color: #FFFFFF;
+    background-color: #213242;
+}
+
+.compra {
+    border-bottom: 1px solid #ffffff;
+    width: 60%;
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+
+.tituloinicial p {
+    margin: 30px 0;
+}
+.foto-principal{
+    max-width: 100%;
+    width: 320px;
+    filter: drop-shadow(8px 8px 8px rgba(255, 255, 255, 0.7));
+    animation: up-down 3s ease-in-out infinite alternate-reverse both;
+}
+
+@keyframes subir{0%
+    {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    }
+@-webkit-keyframes up-down {
+    0% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  @keyframes up-down {
+    0% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(-15px);
+    }
+  }
+
+.addrecente,
+.maispro {
+    width: 80%;
+    margin: auto;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background: #ffffff;
+    margin-bottom: 50px;
+    padding: 25px;
+    animation: subir .4s linear .4s backwards;
+
+}
+.addrecente a, .maispro a{
+    text-decoration: none;
+}
+.img-card{
+    margin: 2px 0;
+  }
+.card-moto .img-card img{
+    max-height: 10.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.card-moto {
+    margin-bottom: 16px;
+    border: 0.5px solid #E1E1E1;
+    padding: 16px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    transform: scale(0.98);
+    transition: box-shadow 0.5s, transform 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-moto:hover {
+    transform: scale(1);
+    border: 1px solid #FFBA0A;
+    box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-moto span {
+    color: #7AC41A;
+}
+
+.modelo {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.marca {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.valor {
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.vista {
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.prazo {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.card-moto p {
+    color: #292929;
+    margin: 0;
+}
+
+.addrecente h3,
+.maispro h3 {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 29px;
+    color: #292929;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 5px 10px 10px 10px;
+}
+
+.motos-principal {
+    background: #F4F4F4;
+    padding: 40px 0 20px 0;
+}
+
+.sobre .titulos  {
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.section-contact .titulos  {
+    text-align: center;
+    padding-bottom: 25px;
+    padding-top: 15px;
+}
+
+.titulos h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    position: relative;
+    color: #292929;
+}
+.section-contact .titulos h2{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    position: relative;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.titulos h2::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+}
+
+.titulos h2::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #FFBA0A;
+    bottom: 0;
+    left: calc(50% - 20px);
+}
+
+.sobre {
+    border: 1px solid #FFBA0A;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 80%;
+    margin: auto;
+    padding: 0 70px 70px 70px;
+    margin-top: 80px;
+
+}
+
+.sobre .container-fluid {
+    margin-top: 20px;
+}
+
+.legenda-sobre {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.sobre img {
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+    border-radius: 5px;
+}
+
+.texto p {
+    text-align: justify;
+    width: 80%;
+    margin: auto;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.sobre .row {
+    display: flex;
+    align-items: center;
+}
+
+
+.section-contact {
+    margin-top: 70px;
+    background-color: #517490;
+    color: #ffffff;
+    padding: 20px 0 100px 0;
+}
+.section-contact h2{
+    margin-bottom: 20px;
+}
+.fale-conosco, .mapa{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.mapa {
+    padding: 0;
+    border-radius: 5px;
+    border-top: 2px solid #FFBA0A;
+    border-bottom: 2px solid #FFBA0A;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+iframe.col-md5{
+    height: 200px;
+    margin-top: 20px;
+}
+
+.info {
+    text-align: justify;
+    margin-left: 15%;
+}
+
+.contNegrito {
+    font-weight: 700;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 0;
+    margin-top: 26px;
+    margin-bottom: 8px;
+}
+
+.fale-conosco {
+    background: #213242;
+    border-radius: 5px;
+    padding: 42px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-top: 2px solid #FFBA0A;
+    border-bottom: 2px solid #FFBA0A;
+}
+
+.fale-conosco form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-nome, .input-email{
+    display: flex;
+}
+
+.fale-conosco input {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+    height: 40px;
+    outline: none;
+    border: none;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.fale-conosco label{
+    margin-bottom: 4px;
+}
+.fale-conosco input:focus, textarea:focus{
+    border: 1px solid #FFBA0A;
+}
+.errorlist{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: red;
+}
+
+textarea {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+    height: 160px;
+    outline: none;
+    border: none;
+    padding: 20px;
+    margin-bottom: 36px;
+}
+
+
+.bt-enviar {
+    width: 100%;
+    background-color: #FFBA0A;
+    color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    height: 40px;
+}
+
+
+.containerproje{
+    position: relative;
+}
+
+
+.containerproje .slide-container .slide .contentproje{
+    flex: 1 1 350px;
+    animation: slideContent .4s linear .4s backwards;
+}
+
+@keyframes slideContent{0%
+{
+    opacity: 0;
+    transform: translateX(-50px);
+}
+}
+
+.containerproje .slide-container{
+    display: none;
+}
+
+.containerproje .slide-container.active{
+    display: block;
+}
+
+.containerproje #prev, 
+.containerproje #next {
+    position: absolute;
+    top:45%;
+    transform: translateY(-50%);
+    height: 35px;
+    width: 35px;
+    line-height: 50px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 35px;
+}
+.seta path{
+    fill: #FFFFFF;
+}
+
+.containerproje #prev:hover path, 
+.containerproje #next:hover path{
+    fill: rgb(216, 216, 216);
+}
+
+video{
+    width: 100%;
+}
+
+.containerproje #prev{
+    left: 20px;
+    transform: rotate(-90deg);
+}
+
+.containerproje #next{
+    right: 20px;
+    transform: rotate(90deg);
+}
+
+
+@media(max-width: 500px){
+    .containerproje #prev{
+        left: 0px;
+        top: 60%;
+    }
+
+    .containerproje #next{
+        right: 0px;
+        top: 60%;
+    }
+}
+
+[data-anime]{
+    opacity: 0;
+    transition: all 1.5s ease 0s;
+}
+
+[data-anime="left"]{
+    transform: translate3d(-50px, 0, 0);
+}
+
+
+[data-anime="rigth"]{
+    transform: translate3d(50px, 0, 0);
+}
+
+
+[data-anime="up"]{
+    transform: translate3d(0, 50px, 0);
+}
+
+[data-anime].animate{
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+}
